@@ -1,5 +1,5 @@
 numpy
 matplotlib
-ipyvtk
+ipyvtk-simple
 vedo
 ipyvtklink
