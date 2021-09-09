@@ -1,5 +1,6 @@
 numpy
 matplotlib
 ipywidgets
+itkwidgets
 vedo
 ipyvtklink
