@@ -1,2 +1,3 @@
 vedo
 ipyvtklink
+jupyter_contrib_nbextensions
