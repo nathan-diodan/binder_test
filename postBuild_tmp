@@ -1,1 +1,9 @@
-jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib jupyterlab-datawidgets itkwidgets
+#!/bin/bash.
+
+set -e
+
+jupyter labextension install @jupyter-widgets/jupyterlab-manager ipycanvas ipyevents
+jupyter labextension enable  @jupyter-widgets/jupyterlab-manager ipycanvas ipyevents
+
+cp start_xvfb.sh /sbin/start_xvfb.sh
+chmod a+x /sbin/start_xvfb.sh

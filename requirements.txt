@@ -1,2 +1,6 @@
+ipywidgets
+ipycanvas
+ipyevents
 vedo
 ipyvtklink
+
