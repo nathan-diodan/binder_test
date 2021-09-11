@@ -7,12 +7,9 @@ dependencies:
   - notebook>5.2
   - jupyterlab>1.1
   - ipywidgets
-  - pandas
   - scipy
-  - numba
-  - scikit-image
   - vtk
   - pip:
-     - k3d
+     - k3d==2.7.4
      - nibabel
      - vedo
