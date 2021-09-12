@@ -22,7 +22,7 @@ print("Prepare K3D:\n")
 
 run('jupyter', 'labextension', 'install', '@jupyter-widgets/jupyterlab-manager', cwd='/tmp')
 run('jupyter', 'nbextension', 'enable', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
-run('jupyter', 'labextension', 'install', 'k3d', cwd='/tmp')
+#run('jupyter', 'labextension', 'install', 'k3d', cwd='/tmp')
 run('jupyter', 'nbextension', 'install', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
 
 print("Patch vedo:\n")
