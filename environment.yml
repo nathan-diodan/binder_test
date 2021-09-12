@@ -1,4 +1,4 @@
-name: binder_test
+name: binder-test
 channels:
   - conda-forge
   - defaults
@@ -7,9 +7,12 @@ dependencies:
   - notebook>5.2
   - jupyterlab>1.1
   - ipywidgets
+  - pandas
   - scipy
+  - numba
+  - scikit-image
   - vtk
+  - k3d
   - pip:
-     - k3d
      - nibabel
      - vedo
