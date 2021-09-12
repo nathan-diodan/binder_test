@@ -18,7 +18,7 @@ dependencies:
   - numba
   - scikit-image
   - vtk
-  - k3d==2.7.4
+  - k3d
   - pip:
      - nibabel
      - vedo
