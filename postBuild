@@ -6,8 +6,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path.cwd()
-
 
 def run(*args, **kwargs):
     # Run a command, echoing the args; fails hard if something goes wrong
@@ -21,11 +19,9 @@ def run(*args, **kwargs):
 print("Prepare K3D:")
 run('jupyter', 'labextension', 'install', '@jupyter-widgets/jupyterlab-manager', cwd='/tmp')
 run('jupyter', 'nbextension', 'enable', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
-#run('jupyter', 'labextension', 'install', 'k3d', cwd='/tmp')
 run('jupyter', 'nbextension', 'install', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
 
-print("Patch vedo")
-
+print("Patching vedo to enable color in k3d backend again")
 to_patch = Path('/srv/conda/envs/notebook/lib/python3.7/site-packages/vedo/backends.py')
 content = to_patch.read_text()
 content = content.replace('# color=_rgb2int(iap.GetColor()),', 'color=_rgb2int(iap.GetColor()),')
