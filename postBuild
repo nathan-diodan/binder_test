@@ -1,6 +1,35 @@
-#!/bin/bash
-cd /tmp
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter nbextension enable --py --sys-prefix k3d
-jupyter labextension install k3d
-jupyter nbextension install --py --sys-prefix k3d
+#!/usr/bin/env python3
+# postBuild for Qiber3D
+# install K3D and patch vedo
+
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path.cwd()
+
+
+def run(*args, **kwargs):
+    # Run a command, echoing the args; fails hard if something goes wrong
+    print("\n\t", " ".join(args), "\n")
+    return_code = subprocess.call(args, **kwargs)
+    if return_code != 0:
+        print("\nERROR", return_code, " ".join(args))
+        sys.exit(return_code)
+
+
+print("Prepare K3D:\n")
+
+run('jupyter', 'labextension', 'install', '@jupyter-widgets/jupyterlab-manager', cwd='/tmp')
+run('jupyter', 'nbextension', 'enable', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
+run('jupyter', 'labextension', 'install', 'k3d', cwd='/tmp')
+run('jupyter', 'nbextension', 'install', '--py', '--sys-prefix', 'k3d', cwd='/tmp')
+
+print("Patch vedo:\n")
+
+to_patch = Path('/srv/conda/envs/notebook/lib/python3.7/site-packages/vedo/backends.py')
+content = to_patch.read_text()
+content = content.replace('# color=_rgb2int(iap.GetColor()),', 'color=_rgb2int(iap.GetColor()),')
+to_patch.write_text(content)
+
+print("Preparations done!")

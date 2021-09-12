@@ -22,4 +22,4 @@ dependencies:
   - pip:
      - nibabel
      - vedo
-     - Qiber3D
+     - git+https://github.com/theia-dev/Qiber3D.git#egg=Qiber3D@dev
