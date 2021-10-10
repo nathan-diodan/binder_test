@@ -17,5 +17,6 @@ dependencies:
   - scikit-image
   - vtk
   - k3d
+  - ipyvtklink
   - pip:
      - git+https://github.com/theia-dev/Qiber3D.git@dev#egg=Qiber3D
